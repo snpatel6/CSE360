@@ -137,6 +137,66 @@ public class SimpleList {
 	       return index;
 	}
 	
+/**
+ * The append function checks if the length is larger than the count to see how many elements are there. 
+ * If the size of array and count is same, I would add the element and just like add function after
+ * I increase the size of array by 50%. If count is less than length, then I just add like normal without changing array size.
+ * @param input
+ */
+	public void append(int input) {
+		if(list.length > count) {
+			list[count] = input;
+			count++;
+		} else {
+		    int temp[] = new int[list.length];
+            
+		    for(int i = 0; i < list.length; i++) {
+        	   temp[i] = list[i];
+            }
+	            
+	        int k = (int) (list.length*(50.0f/100.0f));
+	        list = new int[list.length+k];
+	              
+            for(int i = 0; i < temp.length; i++) {
+        	   list[i] = temp[i];
+            }
+            
+        	list[count] = input;
+   			count++;
+		}
+	}
+	
+/**
+ * first() method returns the first element in the list or if it is empty it returns -1
+ * @return integer	returns the first element or -1 if list is empty
+ */
+	public int first() {
+		if(count != 0) {
+			return list[0];
+		} else {
+			return -1;
+		}
+	}
+
+/**
+ * last() method returns the last element in the list or if it is empty it returns -1
+ * @return integer	returns the last element or -1 if list is empty
+ */
+	public int last() {
+		if(count != 0) {
+			return list[count-1];
+		} else {
+			return -1;
+		}
+	}
+	
+/**
+ * size() function returns the size of the array list
+ * @return int 	returns the size of the array list
+ */
+	public int size() {
+		return list.length;
+	}
 	
 /**
  * The toSting() method in String object gets overwritten with new one.
