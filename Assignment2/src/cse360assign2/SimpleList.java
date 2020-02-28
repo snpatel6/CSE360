@@ -7,7 +7,6 @@
 package cse360assign2;
 
 public class SimpleList {
-	
 	private int list[];
 	private int count;
 	
@@ -74,8 +73,8 @@ public class SimpleList {
  * remove(int) function will use the search function to find the index of where input is located.
  * If the index is found, the element after that index will be placed where the input is for all elements till last.
  * Then I set the last element to 0 and decrement the counter.
- * I would always check how many empty spots are there and If 25% or more empty spots exist, i RESIZE ARRAY TO 
- * SIZE OF NUMBER OF ELEMENTS THAT ARE IN THE LIST. 
+ * I would always check how many empty spots are there and If 25% or more empty spots exist, I RESIZE ARRAY TO 
+ * decrease the size of list by 25%
  * 
  * @param input		element user want to remove.
  */
@@ -99,7 +98,8 @@ public class SimpleList {
 	        	   for(int i = 0; i < count; i++) {
 	        		   temp[i] = list[i];
 	        	   }
-	        	   list = new int[count];
+	        	   int newsize = list.length - k;
+	        	   list = new int[newsize];
 	        	   for(int i = 0; i < temp.length; i++) {
 	        		   list[i] = temp[i];
 	        	   }
